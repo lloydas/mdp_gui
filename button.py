@@ -1,29 +1,37 @@
 from tkinter import Button
 
 class button(Button):
+    def __init__(self, parent=None, values={}, position={}):
+        self.buttonObject = Button(parent)
+        self.state = dict()
+        self.state["visible"] = True
+        self.state["rendered"] = False
+        self.values = values
+        self.position = position
+        self.createWidgets()
+
+
+    def createWidgets(self):
+        for val in self.values:
+            self.buttonObject[val] = self.values[val]
+        self.buttonObject["command"] = self.say_hi # this is an example for setting triggered function 
+        self.buttonObject.pack(self.position) # might need to use render (grid) instead
+
+
     def set_state(self, state):
         self.state = state
+
 
     def get_state(self):
         return self.state
 
-    def say_hi(self):
+
+    def say_hi(self): # example for triggered function
         print("hi there, everyone!")
 
-    def createWidget(self):
-        for i in self.values:
-            self.b[i] = self.values[i]
-        self.b["command"] = self.say_hi # this is an example for setting triggered function 
-        self.b.pack(self.position) # might need to use render (grid) instead
 
-    def __init__(self, parent=None, values={}, position={}):
-        self.b = Button(parent)
-        self.state = {"rendered": False,
-                      "visible": True
-                      }
-        self.values = values
-        self.position = position
-        self.createWidget()
+    def destroy(self):
+        self.buttonObject.destroy()
 
 
 #render

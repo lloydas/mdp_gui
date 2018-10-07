@@ -3,13 +3,14 @@ from tkinter import ttk
 
 
 class Frame:
-	def __init__(self, parent, values):
+	def __init__(self, parent, values=None):
 		self.state = dict()
 		self.frameObject = ttk.Frame(parent)
 		self.state["visible"] = False
 		self.state["rendered"] = False
 		self.values = values
-		self.createWidgets()
+		if values is not None:
+			self.createWidgets()
 
 
 	def createWidgets(self):

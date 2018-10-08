@@ -2,14 +2,16 @@ from tkinter import *
 from tkinter import ttk
 
 
-class frame:
-    def __init__(self, parent, values):
+class Frame:
+    def __init__(self, parent=None, values={}, position={}):
         self.frameObject = ttk.Frame(parent)
         self.state = dict()     
         self.state["visible"] = False
         self.state["rendered"] = False
         self.values = values
+        self.position = position
         self.createWidgets()
+        self.render()
 
 
     def createWidgets(self):
@@ -30,25 +32,24 @@ class frame:
         return self.state
 
 
-    def render(self, column=None, row=None, sticky=None, padx=None, pady=None, columnspan=None, rowspan=None):
+    def render(self):
         self.state["rendered"] = True
         self.state["visible"] = True
-        if column is not None:
-            self.frameObject.grid(column=column)
-        if row is not None:
-            self.frameObject.grid(row=row)
-        if sticky is not None:
-            self.frameObject.grid(sticky=sticky)
-        if padx is not None:
-            self.frameObject.grid(padx=padx)
-        if pady is not None:
-            self.frameObject.grid(pady=pady)
-        if columnspan is not None:
-            self.frameObject.grid(columnspan=columnspan)
-        if rowspan is not None:
-            self.frameObject.grid(rowspan=rowspan)
+        if "column" in self.position:
+            self.frameObject.grid(column=self.position["column"])
+        if "row" in self.position:
+            self.frameObject.grid(row=self.position["row"])
+        if "sticky" in self.position:
+            self.frameObject.grid(sticky=self.position["sticky"])
+        if "padx" in self.position:
+            self.frameObject.grid(padx=self.position["padx"])
+        if "pady" in self.position:
+            self.frameObject.grid(pady=self.position["pady"])
+        if "columnspan" in self.position:
+            self.frameObject.grid(columnspan=self.position["columnspan"])
+        if "rowspan" in self.position:
+            self.frameObject.grid(rowspan=self.position["rowspan"])
         self.frameObject.grid()
-    # pass the position as a dict() into the frame class? --lewei
 
 
     def destroy(self):

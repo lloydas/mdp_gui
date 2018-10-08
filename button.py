@@ -1,5 +1,6 @@
 from tkinter import Button
 
+
 class button(Button):
     def __init__(self, parent=None, values={}, position={}):
         self.buttonObject = Button(parent)

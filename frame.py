@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import ttk
 
 
-class Frame:
+class frame:
     def __init__(self, parent=None, values={}, position={}):
         self.frameObject = ttk.Frame(parent, style='r.TFrame')
         self.state = dict()     

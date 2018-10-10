@@ -35,5 +35,32 @@
             "side": "left"
         }
     ],
+    "menubar": [
+        {
+            "menufiles": 
+            {
+                "menuFile": "menufile_func"
+            }
+        }
+    ],
+    "menufiles": [
+        {
+            "label": "OpenFile",
+            "command": 
+            {
+                "New": "func_new",
+                "Open": "func_open"
+            }
+        },
+        {
+            "label": "EditFile",
+            "command": 
+            {
+                "Read": "func_read"
+            }
+        }
+    ],
     "parameters": []
 }
+
+

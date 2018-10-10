@@ -14,7 +14,8 @@ root = Tk()
 
 content = frame(root, values_json["content"][0], values_json["content"][1])
 frame = frame(content.getObject(), values_json["frame"][0], values_json["frame"][1])
-button = button(frame.getObject(), values_json["button"][0], values_json["button"][1])
+frame1 = frame.getObject()
+button = button(frame1, frame1.quit, values_json["button"][0], values_json["button"][1])
 
 # namelbl = ttk.Label(content.getObject(), text="Name")
 # namelbl.grid(column=3, row=0, columnspan=2)

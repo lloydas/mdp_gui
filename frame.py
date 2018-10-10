@@ -4,7 +4,7 @@ from tkinter import ttk
 
 class Frame:
     def __init__(self, parent=None, values={}, position={}):
-        self.frameObject = ttk.Frame(parent)
+        self.frameObject = ttk.Frame(parent, style='r.TFrame')
         self.state = dict()     
         self.state["visible"] = False
         self.state["rendered"] = False

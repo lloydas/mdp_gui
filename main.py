@@ -3,7 +3,6 @@ from tkinter import ttk
 from tkinter.filedialog import askopenfilename
 from tkinter.messagebox import showerror
 import h5py, cv2, os
-import pandas as pd
 import numpy as np
 from PIL import ImageTk, Image
 

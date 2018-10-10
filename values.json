@@ -27,7 +27,7 @@
     ],
     "button": [
         {
-            "text": "say_hi",
+            "text": "QUIT",
             "fg": "red",
             "disabledforeground": "blue"
         },

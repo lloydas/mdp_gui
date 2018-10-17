@@ -29,9 +29,12 @@ entry = entry(content.getObject(), values_json["entry"][0], values_json["entry"]
 textBig = text(content.getObject(), values_json["textBig"][0], values_json["textBig"][1])
 buttonPrintEntry = button(frame1, entry.getTextVal, values_json["buttonEntry"][0], values_json["buttonEntry"][1])
 buttonPrintText = button(frame1, textBig.getTextVal, values_json["buttonText"][0], values_json["buttonText"][1])
-menubar = menuBar(frame.getObject(), values_json["menubar"][0])
 progBar = progressBar(content.getObject(), values_json["progressBar"][0], values_json["progressBar"][1])
-button(frame1, progBar.step, values_json["progButton"][0], values_json["progButton"][1])
+buttonProgBar = button(frame1, progBar.step, values_json["progButton"][0], values_json["progButton"][1])
+
+menubar = menuBar(frame1, position=values_json["menubar"][0])
+menuFile = menuFile(menubar.getObject())
+menubar.addMenuFile("File", menuFile.getObject())
 
 
 root.mainloop()

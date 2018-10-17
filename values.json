@@ -60,7 +60,16 @@
             }
         }
     ],
-    "parameters": []
+    "parameters": [],
+    "label": [
+        {
+            "text": "Image here"
+        },
+        {
+            "column": 1,
+            "row": 0
+        }
+    ]
 }
 
 

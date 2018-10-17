@@ -110,6 +110,26 @@
         {
             "side": "right"
         }
+    ],
+    "progressBar": [
+        {
+            "mode": "determinate",
+            "length": 100,
+            "orient": "horizontal"
+        },
+        {
+            "sticky": "e"
+        }
+    ],
+    "progButton": [
+        {
+            "text": "incrementProgress",
+            "fg": "red",
+            "disabledforeground": "blue"
+        },
+        {
+            "side": "right"
+        }
     ]
 }
 

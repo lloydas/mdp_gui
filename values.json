@@ -63,11 +63,33 @@
     "parameters": [],
     "label": [
         {
-            "text": "Image here"
+            "text": "Text here"
         },
         {
             "column": 1,
-            "row": 0
+            "row": 0,
+            "sticky": "nw"
+        }
+    ],
+    "entry": [
+        {
+            "textvariable": "default",
+            "width": 7
+        },
+        {
+            "column": 2,
+            "row": 0,
+            "sticky": "n"
+        }
+    ],
+    "buttonEntry": [
+        {
+            "text": "printEntry",
+            "fg": "red",
+            "disabledforeground": "blue"
+        },
+        {
+            "side": "right"
         }
     ]
 }

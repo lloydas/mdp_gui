@@ -6,6 +6,7 @@ from treeview import treeview
 from menuBar import menuBar
 from menuFile import menuFile
 from label import label
+from entry import entry
 import json
 
 
@@ -20,9 +21,11 @@ tree.addFile("a1.h5")
 tree.addFile("a1.h5")
 frame = frame(content.getObject(), values_json["frame"][0], values_json["frame"][1])
 frame1 = frame.getObject()
-button = button(frame1, frame1.quit, values_json["button"][0], values_json["button"][1])
+button1 = button(frame1, frame1.quit, values_json["button"][0], values_json["button"][1])
 label = label(content.getObject(), values_json["label"][0], values_json["label"][1])
-# menubar = menuBar(frame.getObject(), values_json["menubar"][0])
+entry = entry(content.getObject(), values_json["entry"][0], values_json["entry"][1])
+buttonPrintEntry = button(frame1, entry.getTextVal, values_json["buttonEntry"][0], values_json["buttonEntry"][1])
+menubar = menuBar(frame.getObject(), values_json["menubar"][0])
 
 
 root.mainloop()

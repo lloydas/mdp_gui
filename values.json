@@ -91,6 +91,25 @@
         {
             "side": "right"
         }
+    ],
+    "textBig": [
+        {
+            "width": 10,
+            "height": 5
+        },
+        {
+            "sticky": "ew"
+        }
+    ],
+    "buttonText": [
+        {
+            "text": "printBigText",
+            "fg": "red",
+            "disabledforeground": "blue"
+        },
+        {
+            "side": "right"
+        }
     ]
 }
 

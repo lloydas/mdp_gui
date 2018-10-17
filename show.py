@@ -7,6 +7,7 @@ from menuBar import menuBar
 from menuFile import menuFile
 from label import label
 from entry import entry
+from text import text
 import json
 
 
@@ -24,7 +25,10 @@ frame1 = frame.getObject()
 button1 = button(frame1, frame1.quit, values_json["button"][0], values_json["button"][1])
 label = label(content.getObject(), values_json["label"][0], values_json["label"][1])
 entry = entry(content.getObject(), values_json["entry"][0], values_json["entry"][1])
+textBig = text(content.getObject(), values_json["textBig"][0], values_json["textBig"][1])
 buttonPrintEntry = button(frame1, entry.getTextVal, values_json["buttonEntry"][0], values_json["buttonEntry"][1])
+buttonPrintText = button(frame1, textBig.getTextVal, values_json["buttonText"][0], values_json["buttonText"][1])
+
 menubar = menuBar(frame.getObject(), values_json["menubar"][0])
 
 

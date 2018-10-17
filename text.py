@@ -1,12 +1,11 @@
 from tkinter import *
 from tkinter import ttk
 
-
-class frame:
+class text():
     def __init__(self, parent=None, values={}, position={}):
-        self.object = ttk.Frame(parent, style='r.TFrame')
-        self.state = dict()     
-        self.state["visible"] = False
+        self.object = Text(parent)
+        self.state = dict()
+        self.state["visible"] = True
         self.state["rendered"] = False
         self.values = values
         self.position = position
@@ -15,20 +14,23 @@ class frame:
 
 
     def createWidgets(self):
-        if self.values is not None:
-            for val in self.values:
-                self.object[val] = self.values[val]
+        for val in self.values:
+            self.object[val] = self.values[val]
+
+
+    def getTextVal(self):
+    	print(self.object.get(1.0, "end"))
 
 
     def getObject(self):
         return self.object
 
 
-    def setState(self, state):
+    def set_state(self, state):
         self.state = state
 
 
-    def getState(self):
+    def get_state(self):
         return self.state
 
 
@@ -54,4 +56,5 @@ class frame:
 
     def destroy(self):
         self.object.destroy()
+
 

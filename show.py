@@ -9,7 +9,26 @@ from label import label
 from entry import entry
 from text import text
 from progressBar import progressBar
-import json
+import json, pika, time, threading
+
+
+def loopWrapper():
+	t = threading.Thread(target=loop)
+	t.start()
+
+
+def loop():
+	for x in range(0, 100):
+		time.sleep(.1)			
+		connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
+		channel = connection.channel()
+		channel.queue_declare(queue='prog_queue')
+
+		channel.basic_publish(exchange='',
+		                      routing_key='prog_queue',
+		                      body="1")
+		print(" [x] Sent message")
+		connection.close()
 
 
 with open("values.json") as values_file:
@@ -30,8 +49,8 @@ textBig = text(content.getObject(), values_json["textBig"][0], values_json["text
 buttonPrintEntry = button(frame1, entry.getTextVal, values_json["buttonEntry"][0], values_json["buttonEntry"][1])
 buttonPrintText = button(frame1, textBig.getTextVal, values_json["buttonText"][0], values_json["buttonText"][1])
 menubar = menuBar(frame.getObject(), values_json["menubar"][0])
-progBar = progressBar(content.getObject(), values_json["progressBar"][0], values_json["progressBar"][1])
-button(frame1, progBar.step, values_json["progButton"][0], values_json["progButton"][1])
+progBar = progressBar(root, values_json["progressBar"][0], values_json["progressBar"][1])
+progButton = button(frame1, loopWrapper, values_json["progButton"][0], values_json["progButton"][1])
 
 
 root.mainloop()

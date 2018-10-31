@@ -114,8 +114,9 @@
     "progressBar": [
         {
             "mode": "determinate",
-            "length": 100,
-            "orient": "horizontal"
+            "length": 500,
+            "orient": "horizontal",
+            "value": 0
         },
         {
             "sticky": "e"

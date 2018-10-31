@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+import pika, threading
 
 class progressBar():
     def __init__(self, parent=None, values={}, position={}):
@@ -11,6 +12,8 @@ class progressBar():
         self.position = position
         self.createWidgets()
         self.render()
+        self.t = threading.Thread(target=self.open_connection)
+        self.t.start()
 
 
     def step(self):
@@ -56,5 +59,28 @@ class progressBar():
 
     def destroy(self):
         self.object.destroy()
+
+
+    def open_connection(self):
+        self.connection = pika.BlockingConnection(pika.ConnectionParameters(host='127.0.0.1'))
+        channel = self.connection.channel()
+        channel.queue_declare(queue='prog_queue')
+
+        channel.basic_consume(self.callback,
+                              queue='prog_queue',
+                              no_ack=True)
+
+        print(' [*] Waiting for messages. To exit press CTRL+C')
+        channel.start_consuming()
+
+
+    def callback(self, ch, method, properties, body):
+        print(" [x] Received %r" % body.decode('UTF-8'))
+        self.object["value"] += int(body.decode('UTF-8'))
+        if self.object["value"] == 100:
+        	self.destroy()
+        	self.connection.close()
+
+
 
 

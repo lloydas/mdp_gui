@@ -37,10 +37,10 @@
     ],
     "menubar": [
         {
-            "menufiles": 
-            {
-                "menuFile": "menufile_func"
-            }
+            "column": 10,
+            "row": 10,
+            "columnspan": 3,
+            "rowspan": 2
         }
     ],
     "menufiles": [

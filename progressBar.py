@@ -20,6 +20,7 @@ class progressBar():
     	print("triggered")
     	self.object.step(5)
 
+
     def createWidgets(self):
         for val in self.values:
             self.object[val] = self.values[val]

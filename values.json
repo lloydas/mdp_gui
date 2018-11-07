@@ -71,20 +71,68 @@
             "sticky": "nw"
         }
     ],
-    "entry": [
+    "entry1": [
         {
             "textvariable": "default",
             "width": 7
         },
         {
+            "column": 0,
+            "row": 0,
+            "sticky": "n"
+        },
+        {
+            "column": 1,
+            "row": 0,
+            "sticky": "n"
+        },
+        {
             "column": 2,
             "row": 0,
+            "sticky": "n"
+        },
+        {
+            "column": 0,
+            "row": 1,
+            "sticky": "n"
+        },
+        {
+            "column": 1,
+            "row": 1,
+            "sticky": "n"
+        },
+        {
+            "column": 2,
+            "row": 1,
+            "sticky": "n"
+        }
+    ],
+    "canvas": [
+        {
+            "N_points": 10000,
+            "n_bins": 20,
+            "figure_size_1": 5,
+            "figure_size_2": 4
+        },
+        {
+            "column": 3,
+            "row": 5,
             "sticky": "n"
         }
     ],
     "buttonEntry": [
         {
             "text": "printEntry",
+            "fg": "red",
+            "disabledforeground": "blue"
+        },
+        {
+            "side": "right"
+        }
+    ],
+    "buttonTrigger": [
+        {
+            "text": "trigger new frame",
             "fg": "red",
             "disabledforeground": "blue"
         },
@@ -105,6 +153,15 @@
         {
             "text": "printBigText",
             "fg": "red",
+            "disabledforeground": "blue"
+        },
+        {
+            "side": "right"
+        }
+    ],
+    "buttonCanvas": [
+        {
+            "text": "setCanvas",
             "disabledforeground": "blue"
         },
         {

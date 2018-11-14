@@ -1,0 +1,16 @@
+Notes for the new tkinter GUI design
+Lewei
+
+0. use class ways of passing all internal variables, but not the old way as before
+
+1. have a file for all variables, every other class/main file import that file
+
+2. have a main file for controller class, and global functions (e.g. animation)
+In controller, import all frame classes and make use of them
+find out ways of updating (function)
+
+3. have a file for each frame
+
+4. not necessary make a class for everything (e.g. a button, entry)
+everytime i want to create a button, i have a create a button2 (instead of using the same class since they would be the same object)
+

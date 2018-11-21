@@ -14,7 +14,8 @@ import start_page
 
 class PageOne(tk.Frame):
 
-    def __init__(self, parent, controller):
+    def __init__(self, parent, controller, filename):
+        self.filename = "data/" + filename
         self.f = Figure(figsize=(5,5), dpi=100)
         self.a = self.f.add_subplot(111)
         self.img = None
@@ -68,7 +69,7 @@ class PageOne(tk.Frame):
         print('refresh')
         print('params', self.params)
         if self.img is None:
-            self.img = cv2.imread('fig1.jpg', 0)
+            self.img = cv2.imread(self.filename, 0)
         self.animate()
 
     def animate(self):
@@ -76,7 +77,7 @@ class PageOne(tk.Frame):
         self.a.hist(self.img.flatten(),
                     range=(self.params["min"], self.params["max"]),
                     bins=self.params["bins"],
-                    normed=True)
+                    density=True)
         self.canvas.draw()
 
 

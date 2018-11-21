@@ -21,25 +21,28 @@ class monitor(tk.Tk):
 
 		tk.Tk.wm_title(self, "geostar")
 
-		container = tk.Frame(self)
-		container.pack(side="top", fill="both", expand=True)
-		container.grid_rowconfigure(0, weight=1)
-		container.grid_columnconfigure(0, weight=1)
+		self.container = tk.Frame(self)
+		self.container.pack(side="top", fill="both", expand=True)
+		self.container.grid_rowconfigure(0, weight=1)
+		self.container.grid_columnconfigure(0, weight=1)
 
 		self.frames={}
 
-		for F in (StartPage, PageOne):
-			frame = F(container, self)
-			self.frames[F] = frame
-			frame.grid(row=0, column=0, sticky="nsew")
-
+		# Display Start Page
+		frame = StartPage(self.container, self)
+		self.frames[StartPage] = frame
+		frame.grid(row=0, column=0, sticky="nsew")
 		self.show_frame(StartPage)
 
-	def show_frame(self, cont):
-		frame = self.frames[cont]
+	def show_frame(self, filename):
+		frame = self.frames[filename]
 		frame.tkraise()
 		frame.refresh()
 
+	def add_frame(self, cont, filename):
+		frame = cont(self.container, self, filename)
+		self.frames[filename] = frame
+		frame.grid(row=0, column=0, sticky="nsew")
 
 app = monitor()
 app.mainloop()

@@ -9,7 +9,6 @@ import tkinter as tk
 from tkinter import ttk
 
 import page_one
-from global_def import *
 
 class StartPage(tk.Frame):
 
@@ -20,6 +19,9 @@ class StartPage(tk.Frame):
 
 		button = ttk.Button(self, text="Visit Page 1", command = lambda: controller.show_frame(page_one.PageOne))
 		button.pack()
+
+	def refresh(self):
+		return
 
 
 

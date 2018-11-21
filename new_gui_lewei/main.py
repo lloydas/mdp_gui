@@ -27,33 +27,21 @@ class monitor(tk.Tk):
 		container.grid_columnconfigure(0, weight=1)
 
 		self.frames={}
-		self.anis=[]
 
 		for F in (StartPage, PageOne):
 			frame = F(container, self)
 			self.frames[F] = frame
 			frame.grid(row=0, column=0, sticky="nsew")
 
-			if F == PageOne:
-				PageOne_g = frame.get_g()
-				self.anis.append(PageOne_g)
-
 		self.show_frame(StartPage)
-
-	def get_ani(self):
-		return self.anis
 
 	def show_frame(self, cont):
 		frame = self.frames[cont]
 		frame.tkraise()
+		frame.refresh()
 
 
 app = monitor()
-anis = app.get_ani()
-for g in anis:
-	f = g.get_f()
-	a = g.get_a()
-	animation.FuncAnimation(f, animate(a), interval=100, repeat=True)
 app.mainloop()
 
 

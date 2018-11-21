@@ -14,3 +14,10 @@ find out ways of updating (function)
 4. not necessary make a class for everything (e.g. a button, entry)
 everytime i want to create a button, i have a create a button2 (instead of using the same class since they would be the same object)
 
+
+Plan for next week:
+Learn through the class online
+Make the figure to display the real time info of the data (func animation)
+Read a figure
+Read info (min pixel, max pixel, max count, ) from the entries and display the bin count of the pixel values of a figure (single raster)
+Display the histogram

@@ -1,0 +1,7 @@
+Notes for the new tkinter GUI design
+Lewei
+
+be able to bring up a new frame for reading a new picture
+display the pixel information of the picture
+refresh the histogram
+

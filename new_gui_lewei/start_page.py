@@ -6,7 +6,9 @@ import matplotlib.animation as animation
 from matplotlib import style
 from PIL import ImageTk,Image 
 import os
-import cv2
+import pandas as pd
+import numpy as np
+import h5py
 
 import tkinter as tk
 from tkinter import ttk
@@ -53,7 +55,22 @@ class StartPage(tk.Frame):
 		print('item',self.tree.item(item,"text"))
 		if self.tree.item(item,"text") != "files":
 			self.curr_img = self.tree.item(item,"text")
-			img = ImageTk.PhotoImage(Image.open("data/" + self.curr_img))  
+			ext = self.curr_img.split('.')[-1]
+			if ext == "h5":
+				img_f = h5py.File("data/" + self.curr_img, 'r')
+				a_group_key = list(img_f.keys())[0]
+				img_group = img_f[a_group_key]
+				# img_data = img_group.items()
+				# print(img_data)
+				for name, data in ft['/PACKET_0'].items():
+					
+				# print(img_data)
+				# print("data/"+self.curr_img)
+				# f = pd.HDFStore("data/"+self.curr_img, 'r')
+				# print(f.keys())
+			else:
+				img_data = Image.open("data/" + self.curr_img)
+			img = ImageTk.PhotoImage(img_data)
 			self.canvas.create_image(20, 20, anchor=tk.NW, image=img)
 			self.canvas.show()
 

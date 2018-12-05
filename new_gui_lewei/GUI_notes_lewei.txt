@@ -1,20 +1,17 @@
-# mdp_gui
+Notes for the new tkinter GUI design
+Lewei
 
-# Only setup neccesary is to install the neccesary libraries, which are in requirements.txt, run:
-pip install -r requirements.txt
+All GUI files go into directory "new_gui_lewei"
 
-# to run (the old) gui:
-python3 main.py
-
-# to run the new gui:
+To run the GUI file:
 	cd into directory "new_gui_lewei"
 	python main.py <dirname>
 
-# Make Sure:
+Make Sure:
 	the <dirname> is at the same level as main.py
 	there are only image files in <dirname>
 
-# Functions:
+Functions:
 	on MENU page:
 	display the menu treeview for <dirname>
 	For a non-h5 file, 
@@ -30,4 +27,5 @@ python3 main.py
 	on INFO page:
 		display the pixel information of the image as a histogram
 		refresh the histogram with input parameters when click on "update" button
-		
+
+

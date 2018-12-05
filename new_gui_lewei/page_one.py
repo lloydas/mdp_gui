@@ -5,6 +5,7 @@ from matplotlib.figure import Figure
 import matplotlib.animation as animation
 from matplotlib import style
 import cv2
+import h5py
 
 import tkinter as tk
 from tkinter import ttk, W, E
@@ -14,16 +15,20 @@ import start_page
 
 class PageOne(tk.Frame):
 
-    def __init__(self, parent, controller, filename):
-        self.filename = "data/" + filename
+    def __init__(self, parent, controller, filename, h5_status=False, img=None, raster=None):
+        self.controller = controller
+        self.filename = filename
+        self.h5_status = h5_status
+        self.img = img
+        self.raster = raster
+        self.display = None
         self.f = Figure(figsize=(5,5), dpi=100)
         self.a = self.f.add_subplot(111)
-        self.img = None
         self.params = {"min": 0, "max": 255, "bins": 10}
 
         tk.Frame.__init__(self, parent)
         label = tk.Label(self, text="Page One!!")
-        button = ttk.Button(self, text="Back to Home", command=lambda: controller.show_frame(start_page.StartPage))        
+        button = ttk.Button(self, text="Back to Home", command=lambda: self.controller.show_frame(start_page.StartPage))        
 
         label_min = ttk.Label(self, text="min:")
         label_max = ttk.Label(self, text="max:")
@@ -68,13 +73,17 @@ class PageOne(tk.Frame):
     def refresh(self):
         print('refresh')
         print('params', self.params)
-        if self.img is None:
-            self.img = cv2.imread(self.filename, 0)
+        if self.h5_status == False:
+            self.display = cv2.imread(self.filename, 0)
+        else:        
+            h5_data = h5py.File(self.filename, 'r')
+            img_data = h5_data[self.img]
+            self.display = img_data[self.raster].value
         self.animate()
 
     def animate(self):
         self.a.clear()
-        self.a.hist(self.img.flatten(),
+        self.a.hist(self.display.flatten(),
                     range=(self.params["min"], self.params["max"]),
                     bins=self.params["bins"],
                     density=True)
